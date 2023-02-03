@@ -1,3 +1,3 @@
-add_lunch_combo kvim2-eng
-add_lunch_combo kvim2-user
-add_lunch_combo kvim2-userdebug
+add_lunch_combo gomyhomv9-eng
+add_lunch_combo gomyhomv9-user
+add_lunch_combo gomyhomv9-userdebug

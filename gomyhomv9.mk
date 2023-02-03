@@ -17,7 +17,7 @@
 # build for Meson reference board.
 #
 
-PRODUCT_DIR := kvim2
+PRODUCT_DIR := gomyhomv9
 
 # Dynamic enable start/stop zygote_secondary in 64bits
 # and 32bit system, default closed
@@ -71,7 +71,7 @@ endif
 endif
 
 
-# kvim2:
+# gomyhomv9:
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.hdmi.device_type=4 \
         ro.hdmi.set_menu_language=true \
@@ -88,11 +88,11 @@ PRODUCT_COPY_FILES += \
         device/khadas/common/cmdclient:$(TARGET_COPY_OUT_SYSTEM)/bin/cmdclient \
         device/khadas/common/cmdserver:$(TARGET_COPY_OUT_SYSTEM)/bin/cmdserver
 
-PRODUCT_NAME := kvim2
-PRODUCT_DEVICE := kvim2
-PRODUCT_BRAND := khadas
-PRODUCT_MODEL := VIM2
-PRODUCT_MANUFACTURER := khadas
+PRODUCT_NAME := gomyhomv9
+PRODUCT_DEVICE := gomyhomv9
+PRODUCT_BRAND := Droidlogic
+PRODUCT_MODEL := gomyhomv9
+PRODUCT_MANUFACTURER := DroidLogic
 
 TARGET_KERNEL_BUILT_FROM_SOURCE := true
 
@@ -278,7 +278,7 @@ include hardware/amlogic/wifi/configs/wifi.mk
 #########################################################################
 
 BOARD_HAVE_BLUETOOTH := true
-BLUETOOTH_MODULE := BCMBT
+BLUETOOTH_MODULE := QCABT
 include hardware/amlogic/bluetooth/configs/bluetooth.mk
 
 
@@ -317,7 +317,7 @@ include device/khadas/common/audio.mk
 #
 #########################################################################
 
-#for gtvs and aosp both need camera feature,for usb camera £¬use external camera feature
+#for gtvs and aosp both need camera feature,for usb camera ï¿½ï¿½use external camera feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml
 
@@ -499,6 +499,13 @@ include device/khadas/common/gpu/t82x-user-arm64.mk
 ifneq ($(TARGET_BUILD_LIVETV),true)
 TARGET_BUILD_LIVETV := false
 endif
+
+# OpenGapps - ATV target
+ifeq ($(TARGET_BUILD_GOOGLE_ATV), true)
+PRODUCT_PACKAGES += TvProvision
+include vendor/gapps/atv/atv-vendor.mk
+endif
+
 ifneq ($(TARGET_BUILD_GOOGLE_ATV),true)
 TARGET_BUILD_GOOGLE_ATV := false
 endif

@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-PRODUCT_DIR := kvim2
+PRODUCT_DIR := gomyhomv9
 
 ifneq ($(ANDROID_BUILD_TYPE), 64)
 TARGET_CPU_ABI := armeabi-v7a
